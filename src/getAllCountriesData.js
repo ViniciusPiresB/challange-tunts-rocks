@@ -1,9 +1,9 @@
-import axios from "axios";
+const axios = require("axios");
 
-export const getAllCountriesData = async () => {
+const getAllCountriesData = async () => {
   const countries = (await axios.get("https://restcountries.com/v2/all")).data;
 
-  let body: Array<object> = [];
+  let body = [];
 
   for (const i in countries) {
     const country = countries[i];
@@ -22,11 +22,11 @@ export const getAllCountriesData = async () => {
     currencies = currencies.slice(0, -1);
     if (currencies == "undefined") currencies = "-";
 
-    const line: object = {
+    const line = {
       name,
       capital,
       area,
-      currencies,
+      currencies
     };
 
     body.push(line);
@@ -34,3 +34,5 @@ export const getAllCountriesData = async () => {
 
   return body;
 };
+
+exports.getAllCountriesData = getAllCountriesData;
