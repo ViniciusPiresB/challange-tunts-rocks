@@ -29,5 +29,5 @@ ws.cell(2, 4).string("Currencies").style(subTitleStyle);
     line++;
   }
 
-  wb.write("Excel.xlsx");
+  wb.write("result.xlsx");
 })();
